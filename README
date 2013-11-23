@@ -1,0 +1,20 @@
+This is USB device driver for IKA Logic LCD Logic Combo.
+http://ikalogicstore.com/index.php?id_product=17&controller=product
+
+I made it on Ubuntu13.04(kernel3.8.0).
+It is based on usb-skeleton.c in kernel source.
+
+How to use:
+
+#make
+#insmod ikalcd.ko
+#echo -n "foobar" >/dev/ikalcd0
+
+"foobar" is showed on the LCD.
+You can also control the LCD by sending commands.
+For example:
+
+#echo -en "\x11\x65\x80" >/dev/ikalcd0
+
+This sets up the brigntness of the LCD backligt.
+See datasheet for more details.
